@@ -6,10 +6,13 @@ Linka Sofia 1911100048
 
 ## Work
 
-Mapeamento associativo por conjuntos
-Escrita no retorno
-LRU
-Jozias e Linka
+Informações centrais:
+
+- Mapeamento associativo por conjuntos
+- Escrita no retorno
+- LRU
+
+O algoritmo deve ser feito com:
 
 - Número de células na MP: 128;
 - Tamanho do bloco: 4 células;
