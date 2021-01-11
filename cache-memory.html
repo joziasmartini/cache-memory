@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cache-memory</title>
+</head>
+<body>
+
+  <!-- Main -->
+  <main id="main"></main>
+
+  <style>
+    main {
+      margin: 0 auto;
+      max-width: 500px;
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+
+  <!-- Javascript -->
+  <script>
+
+    function menu() {
+      var opcao = 1;
+      var mensagem = "";
+      
+      switch (opcao) {
+        case 1:
+          mensagem = "Ler";
+          break;
+        case 2:
+          mensagem = "Escrever";
+          break;
+        case 3:
+          mensagem = "Listar";
+          break;
+        case 4:
+          mensagem = "Encerrar";
+          break;
+        }
+      
+      let resultado = document.getElementById("main");
+      resultado.innerHTML = "A função escolhida foi " + mensagem;
+    }
+    
+    menu();
+
+  </script>
+  
+</body>
+</html>
