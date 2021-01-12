@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cache-memory</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HTML -->
+  <main id="main">
+
+    <svg class="cpu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="60" height="60"><path fill-rule="evenodd" d="M8.75 8a.75.75 0 00-.75.75v6.5c0 .414.336.75.75.75h6.5a.75.75 0 00.75-.75v-6.5a.75.75 0 00-.75-.75h-6.5zm.75 6.5v-5h5v5h-5z"></path><path fill-rule="evenodd" d="M15.25 1a.75.75 0 01.75.75V4h2.25c.966 0 1.75.784 1.75 1.75V8h2.25a.75.75 0 010 1.5H20v5h2.25a.75.75 0 010 1.5H20v2.25A1.75 1.75 0 0118.25 20H16v2.25a.75.75 0 01-1.5 0V20h-5v2.25a.75.75 0 01-1.5 0V20H5.75A1.75 1.75 0 014 18.25V16H1.75a.75.75 0 010-1.5H4v-5H1.75a.75.75 0 010-1.5H4V5.75C4 4.784 4.784 4 5.75 4H8V1.75a.75.75 0 011.5 0V4h5V1.75a.75.75 0 01.75-.75zm3 17.5a.25.25 0 00.25-.25V5.75a.25.25 0 00-.25-.25H5.75a.25.25 0 00-.25.25v12.5c0 .138.112.25.25.25h12.5z"></path></svg>
+
+    <h1 class="title">cache-memory</h1>
+
+    <p class="subtitle">A cache memory implementation in javascript.</p>
+
+    <section class="form">
+
+      <input class="input" type="text" placeholder="Write here">
+
+      <div class="button-area">
+
+        <a href="#" onclick="read()" class="button">Read</a>
+    
+        <a href="#" onclick="read()" class="button">Write</a>
+    
+        <a href="#" onclick="read()" class="button">List</a>
+    
+        <a href="#" onclick="read()" class="button">Exit</a>
+
+      </div>
+
+    </section>
+
+    <section class="print-result">
+      <p id="cache"></p>
+      <p id="memory"></p>
+    </section>
+
+  </main>
+
+  <!-- CSS -->
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Roboto Mono', monospace;
+      color: #333;
+    }
+    main {
+      margin: 24px auto;
+      max-width: 400px;
+      text-align: center;
+    }
+    .cpu-icon {
+      margin: 0 auto;
+      display: block;
+      fill: #333;
+    }
+    .title {
+      margin: 0 0 14px;
+    }
+    .divider {
+      border: none;
+      border-top: 0.5px solid #ccc;
+    }
+    .subtitle {
+      margin: -8px 0 28px;
+      font-size: 0.8em;
+      font-weight: 300;
+    }
+    .form {
+      padding: 24px;
+      border: 0.5px solid #ccc;
+      border-radius: 10px;
+    }
+    .input {
+      box-sizing: border-box;
+      padding: 8px;
+      width: 100%;
+      border: 0.5px solid #ccc;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.8em;
+      font-weight: 200;
+      transition: 0.5s all;
+    }
+    .input:focus-visible {
+      border: 1px solid #3c73eb;
+      outline: 0;
+    }
+    .button-area {
+      display: flex;
+      justify-content: center;
+    }
+    .button {
+      margin: 8px;
+      padding: 6px 12px;
+      border: 0.5px solid #ccc;
+      border-radius: 5px;
+      color: inherit;
+      text-decoration: none;
+      font-size: 0.8em;
+      font-weight: 200;
+      background-color: #fff;
+      transition: 0.5s all;
+    }
+    .button:hover {
+      cursor: pointer;
+      background-color: #3c73eb;
+      border: 1px solid #ccc;
+      color: #fff;
+    }
+    .print-result {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-content: left;
+      text-align: left;
+      font-size: 0.8em;
+      font-weight: 200;
+    }
+  </style>
+
+  <!-- JS -->
+  <script>
+
+    //Identify html elements
+    const cache = document.getElementById("cache");
+    const memory = document.getElementById("memory");
+
+    //Generate random int
+    function generateRandomInt() {
+      return Math.round(Math.random());
+    };
+
+    //Generate cache set
+    function generateCache() {
+
+      cache.innerHTML += "<br/>Cache";
+
+      for (let i = 0; i < 8; i++) {
+
+        var cacheSet = {
+          zero: generateRandomInt(),
+          one: generateRandomInt(),
+          two: generateRandomInt(),
+          three: generateRandomInt(),
+          fullSet: function() {
+            return this.zero + " " +
+            this.one + " " +
+            this.two + " " +
+            this.three;
+          }
+        };
+
+        cache.innerHTML += "<br/>" + cacheSet.fullSet();
+      };
+    }
+
+    //Generate memory set
+    function generateMemory() {
+
+      memory.innerHTML += "<br/>Memory";
+
+      for (let i = 0; i < 8; i++) {
+
+        var memorySet = {
+          zero: generateRandomInt(),
+          one: generateRandomInt(),
+          two: generateRandomInt(),
+          three: generateRandomInt(),
+          four: generateRandomInt(),
+          five: generateRandomInt(),
+          six: generateRandomInt(),
+          seven: generateRandomInt(),
+          fullSet: function() {
+            return this.zero + " " +
+            this.one + " " +
+            this.two + " " +
+            this.three + " " +
+            this.four + " " +
+            this.five + " " +
+            this.six + " " +
+            this.seven;
+          }
+        };
+
+        memory.innerHTML += "<br/>" + memorySet.fullSet();
+      };
+    }    
+
+    //Start on page load
+    generateCache();
+    generateMemory();
+    console.log(memorySet[1].four);
+    
+  </script>
+  
+</body>
+</html>
