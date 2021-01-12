@@ -47,6 +47,39 @@ OBS3: A memória principal deve ser preenchida com valores aleatórios (entre 0x
 
 OBS4: Os contadores da política de substituição possuem 3 bits.
 
+### Instructions
+
+criar uma struct com int[4] para os quatro bytes/bits
+
+depois estanciar várias structs/objetos do javascript
+
+a memória principal será um vetor dessas structs
+
+como o k = 8, então o vetor terá 8 strucs
+
+-
+
+na memoria cache será parecido, podemos instanciar uma sequência de blocos
+
+ainda terá o contador da política de substituição
+
+o bit de validade (toda memória cache precisa ter)
+
+é isso 
+
+-
+
+quando começar, pode instanciar dois ou quatro vetores
+
+que são conjuntos de dois ou quatro linhas
+
+a memória cache vai ser um vetor de conjuntos
+
+ou um vetor de linhas 
+
+essa é a dica de implementação do caimi
+
+
 ## Links
 
 ### Repository
