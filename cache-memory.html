@@ -36,9 +36,10 @@
 
     </section>
 
-    <p id="result">
-
-    </p>
+    <section class="print-result">
+      <p id="cache"></p>
+      <p id="memory"></p>
+    </section>
 
   </main>
 
@@ -84,9 +85,10 @@
       font-family: 'Roboto Mono', monospace;
       font-size: 0.8em;
       font-weight: 200;
+      transition: 0.5s all;
     }
     .input:focus-visible {
-      border: 1px solid #333;
+      border: 1px solid #3c73eb;
       outline: 0;
     }
     .button-area {
@@ -108,8 +110,14 @@
     .button:hover {
       cursor: pointer;
       background-color: #3c73eb;
+      border: 1px solid #ccc;
+      color: #fff;
     }
-    #result {
+    .print-result {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-content: left;
+      text-align: left;
       font-size: 0.8em;
       font-weight: 200;
     }
@@ -118,31 +126,76 @@
   <!-- JS -->
   <script>
 
-    function menu() {
-      var option = 1;
-      var message = "";
-      
-      switch (option) {
-        case 1:
-          message = "Ler";
-          break;
-        case 2:
-          message = "Escrever";
-          break;
-        case 3:
-          message = "Listar";
-          break;
-        case 4:
-          message = "Encerrar";
-          break;
-        }
-      
-      let result = document.getElementById("result");
-      result.innerHTML = "A função escolhida foi " + message;
-    }
-    
-    menu();
+    //Identify html elements
+    const cache = document.getElementById("cache");
+    const memory = document.getElementById("memory");
 
+    //Generate random int
+    function generateRandomInt() {
+      return Math.round(Math.random());
+    };
+
+    //Generate cache set
+    function generateCache() {
+
+      cache.innerHTML += "<br/>Cache";
+
+      for (let i = 0; i < 8; i++) {
+
+        var cacheSet = {
+          zero: generateRandomInt(),
+          one: generateRandomInt(),
+          two: generateRandomInt(),
+          three: generateRandomInt(),
+          fullSet: function() {
+            return this.zero + " " +
+            this.one + " " +
+            this.two + " " +
+            this.three;
+          }
+        };
+
+        cache.innerHTML += "<br/>" + cacheSet.fullSet();
+      };
+    }
+
+    //Generate memory set
+    function generateMemory() {
+
+      memory.innerHTML += "<br/>Memory";
+
+      for (let i = 0; i < 8; i++) {
+
+        var memorySet = {
+          zero: generateRandomInt(),
+          one: generateRandomInt(),
+          two: generateRandomInt(),
+          three: generateRandomInt(),
+          four: generateRandomInt(),
+          five: generateRandomInt(),
+          six: generateRandomInt(),
+          seven: generateRandomInt(),
+          fullSet: function() {
+            return this.zero + " " +
+            this.one + " " +
+            this.two + " " +
+            this.three + " " +
+            this.four + " " +
+            this.five + " " +
+            this.six + " " +
+            this.seven;
+          }
+        };
+
+        memory.innerHTML += "<br/>" + memorySet.fullSet();
+      };
+    }    
+
+    //Start on page load
+    generateCache();
+    generateMemory();
+    console.log(memorySet[1].four);
+    
   </script>
   
 </body>
