@@ -29,6 +29,10 @@
 
     </section>
 
+    <section class="option-result">
+      <p id="option-return"></p>
+    </section>
+
     <section class="print-result">
       <div id="cache">
         <p>Cache</p>
@@ -113,6 +117,10 @@
       border: 1px solid #ccc;
       color: #fff;
     }
+    .option-result {
+      font-size: 0.8em;
+      font-weight: 400;
+    }
     .print-result {
       display: grid;
       grid-template-columns: 35% 40% 25%;
@@ -141,6 +149,7 @@
     const memory = document.getElementById("memory");
     const form = document.getElementById("form");
     const input = document.getElementById("input");
+    const option = document.getElementById("option-return");
 
     //Function thats generate random number
     function generateRandomNumber(count) {
@@ -154,13 +163,13 @@
     //Function that generates cache and memory data
     function generateCacheAndMemory() {
       for (let i = 0; i < lines; i++) {
-        var cacheValue = new cacheConstructor(generateRandomNumber(4));
-        cache.innerHTML += cacheValue.data + "<br/>";
-        var memoryValue = new memoryConstructor(generateRandomNumber(8));
-        memory.innerHTML += memoryValue.data + "<br/>";
+        cacheVector[i] = new cacheConstructor(generateRandomNumber(4));
+        cache.innerHTML += cacheVector[i].data + "<br/>";
+        memoryVector[i] = new memoryConstructor(generateRandomNumber(8));
+        memory.innerHTML += memoryVector[i].data + "<br/>";
 
         //If the first char is '1', then hit, if not, miss
-        var hitOrMiss = memoryValue.data.slice(0, 1) == 1 ? "H" : "M"; 
+        var hitOrMiss = memoryVector[i].data.slice(0, 1) == 1 ? "H" : "M"; 
         hit.innerHTML += hitOrMiss + "<br/>";
       }
     }
@@ -168,9 +177,8 @@
     //Option read
     function optionRead() {
       let position = input.value;
-      let valueInPosition = memory[position].data;
-      console.log(position);
-      console.log(valueInPosition);
+      let valueInPosition = memoryVector[position].data;
+      option.innerHTML = "O valor na posição " + position + " é " + valueInPosition + ".";
     }
 
     //Option write
