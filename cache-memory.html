@@ -16,15 +16,15 @@
     <h1 class="title">cache-memory</h1>
     <p class="subtitle">A cache memory implementation in javascript.</p>
 
-    <section class="form">
+    <section id="form">
 
       <input id="input" class="input" type="text" placeholder="Write here">
 
       <section class="button-area">
-        <a href="#" onclick="read()" class="button">Read</a>
-        <a href="#" onclick="read()" class="button">Write</a>
-        <a href="#" onclick="read()" class="button">List</a>
-        <a href="#" onclick="read()" class="button">Exit</a>
+        <a href="#" onclick="optionRead()" class="button">Read</a>
+        <a href="#" onclick="optionWrite()" class="button">Write</a>
+        <a href="#" onclick="optionList()" class="button">List</a>
+        <a href="#" onclick="optionExit()" class="button">Exit</a>
       </section>
 
     </section>
@@ -72,7 +72,7 @@
       font-size: 0.8em;
       font-weight: 300;
     }
-    .form {
+    #form {
       padding: 24px;
       border: 0.5px solid #ccc;
       border-radius: 10px;
@@ -115,9 +115,8 @@
     }
     .print-result {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      justify-content: center;
-      text-align: center;
+      grid-template-columns: 35% 40% 25%;
+      text-align: left;
       font-size: 0.8em;
       font-weight: 200;
     }
@@ -131,6 +130,7 @@
     var memoryVector = new Array(8);
     var replacementPolicyCounter = 0;
     var validationBit = 0;
+    var lines = 8;
 
     //Cache and memory constructors
     function cacheConstructor(data) { this.data = data; }
@@ -139,6 +139,7 @@
     //Declare html elements
     const cache = document.getElementById("cache");
     const memory = document.getElementById("memory");
+    const form = document.getElementById("form");
     const input = document.getElementById("input");
 
     //Function thats generate random number
@@ -150,8 +151,9 @@
       return generatedCache;
     };
 
+    //Function that generates cache and memory data
     function generateCacheAndMemory() {
-      for (let i = 0; i < 8; i++) {
+      for (let i = 0; i < lines; i++) {
         var cacheValue = new cacheConstructor(generateRandomNumber(4));
         cache.innerHTML += cacheValue.data + "<br/>";
         var memoryValue = new memoryConstructor(generateRandomNumber(8));
@@ -161,6 +163,29 @@
         var hitOrMiss = memoryValue.data.slice(0, 1) == 1 ? "H" : "M"; 
         hit.innerHTML += hitOrMiss + "<br/>";
       }
+    }
+
+    //Option read
+    function optionRead() {
+      let position = input.value;
+      let valueInPosition = memory[position].data;
+      console.log(position);
+      console.log(valueInPosition);
+    }
+
+    //Option write
+    function optionWrite() {
+      
+    }
+
+    //Option list
+    function optionList() {
+      
+    }
+
+    //Option exit
+    function optionExit() {
+      form.innerHTML = "Finished.";
     }
 
     //Start algorithm
