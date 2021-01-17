@@ -30,8 +30,15 @@
     </section>
 
     <section class="print-result">
-      <p id="cache"></p>
-      <p id="memory"></p>
+      <div id="cache">
+        <p>Cache</p>
+      </div>
+      <div id="memory">
+        <p>Memory</p>
+      </div>
+      <div id="hitOrMiss">
+        <p>Hit or miss</p>
+      </div>
     </section>
 
   </main>
@@ -108,7 +115,7 @@
     }
     .print-result {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
       justify-content: left;
       text-align: left;
       font-size: 0.8em;
@@ -120,98 +127,42 @@
   <script>
 
     //Declare arrays and variables
-    var cacheVector = [
-    "1001", "1100", "1001", "1100", 
-    "1001", "1100", "1001", "1100"
-    ];
-    var memoryVector = [
-    "10111011", "01000100", "10111011", "01000100", 
-    "10111011", "01000100", "10111011", "01000100"
-    ];
+    var cacheVector = new Array(8);
+    var memoryVector = new Array(8);
     var replacementPolicyCounter = 0;
     var validationBit = 0;
+
+    //Cache and memory constructors
+    function cacheConstructor(data) { this.data = data; }
+    function memoryConstructor(data) { this.data = data; }
 
     //Declare html elements
     const cache = document.getElementById("cache");
     const memory = document.getElementById("memory");
     const input = document.getElementById("input");
 
-    //Generate random int
-    function generateRandomInt() {
-      return Math.round(Math.random());
+    //Function thats generate random number
+    function generateRandomNumber(count) {
+      let generatedCache = "";
+      for (let i = 0; i < count; i++) {
+        generatedCache += Math.round(Math.random()) + " ";;
+        
+      }
+      return generatedCache;
     };
 
-    function cacheConstructor(data) {
-      this.data = data;
+    function generateCacheAndMemory() {
+      for (let i = 0; i < 8; i++) {
+        var cacheValue = new cacheConstructor(generateRandomNumber(4));
+        cache.innerHTML += cacheValue.data + "<br/>";
+        var memoryValue = new memoryConstructor(generateRandomNumber(8));
+        memory.innerHTML += memoryValue.data + "<br/>";
+        hitOrMiss.innerHTML += "H" + "<br/>";
+      }
     }
 
-    var myFather = new cacheConstructor(01010101);
-    cache.innerHTML += "<br/>" + myFather.data;
-
-    /*
-
-    //Generate cache set
-    function generateCache() {
-
-      cache.innerHTML += "<br/>Cache";
-
-      for (let i = 0; i < 8; i++) {
-
-        var cacheSet = {
-          zero: generateRandomInt(),
-          one: generateRandomInt(),
-          two: generateRandomInt(),
-          three: generateRandomInt(),
-          fullSet: function() {
-            return this.zero + " " +
-            this.one + " " +
-            this.two + " " +
-            this.three;
-          }
-        };
-
-        cache.innerHTML += "<br/>" + cacheSet.fullSet();
-      };
-    }
-
-    //Generate memory set
-    function generateMemory() {
-
-      memory.innerHTML += "<br/>Memory";
-
-      for (let i = 0; i < 8; i++) {
-
-        var memorySet = {
-          zero: generateRandomInt(),
-          one: generateRandomInt(),
-          two: generateRandomInt(),
-          three: generateRandomInt(),
-          four: generateRandomInt(),
-          five: generateRandomInt(),
-          six: generateRandomInt(),
-          seven: generateRandomInt(),
-          fullSet: function() {
-            return this.zero + " " +
-            this.one + " " +
-            this.two + " " +
-            this.three + " " +
-            this.four + " " +
-            this.five + " " +
-            this.six + " " +
-            this.seven;
-          }
-        };
-
-        memory.innerHTML += "<br/>" + memorySet.fullSet();
-      };
-    }    
-
-    */
-
-    //Start on page load
-    generateCache();
-    generateMemory();
-    console.log(memorySet[1].four);
+    //Start algorithm
+    generateCacheAndMemory();
     
   </script>
   
