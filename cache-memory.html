@@ -33,7 +33,7 @@
       <p id="option-return"></p>
     </section>
 
-    <section class="print-result">
+    <section class="memory-data">
       <div id="cache">
         <p>Cache</p>
       </div>
@@ -121,7 +121,7 @@
       font-size: 0.8em;
       font-weight: 400;
     }
-    .print-result {
+    .memory-data {
       display: grid;
       grid-template-columns: 35% 40% 25%;
       text-align: left;
@@ -136,6 +136,7 @@
     //Declare arrays and variables
     var cacheVector = new Array(8);
     var memoryVector = new Array(8);
+    var hitVector = new Array(8);
     var replacementPolicyCounter = 0;
     var validationBit = 0;
     var lines = 8;
@@ -143,6 +144,7 @@
     //Cache and memory constructors
     function cacheConstructor(data) { this.data = data; }
     function memoryConstructor(data) { this.data = data; }
+    function hitConstructor(data) { this.data = data; }
 
     //Declare html elements
     const cache = document.getElementById("cache");
@@ -160,17 +162,15 @@
       return generatedCache;
     };
 
-    //Function that generates cache and memory data
+    //Function that generates cache, memory and hit data
     function generateCacheAndMemory() {
       for (let i = 0; i < lines; i++) {
         cacheVector[i] = new cacheConstructor(generateRandomNumber(4));
         cache.innerHTML += cacheVector[i].data + "<br/>";
         memoryVector[i] = new memoryConstructor(generateRandomNumber(8));
         memory.innerHTML += memoryVector[i].data + "<br/>";
-
-        //If the first char is '1', then hit, if not, miss
-        var hitOrMiss = memoryVector[i].data.slice(0, 1) == 1 ? "H" : "M"; 
-        hit.innerHTML += hitOrMiss + "<br/>";
+        hitVector[i] = new hitConstructor(generateRandomNumber(1));
+        hit.innerHTML += hitVector[i].data + "<br/>";
       }
     }
 
@@ -183,17 +183,28 @@
 
     //Option write
     function optionWrite() {
-      
+      let inputData = input.value;
+      for (let i = 0; i < memoryVector.lenght; i++) {
+        if (inputData === memoryVector[i]) {
+          hitVector[i] = "Hit!"
+        }
+        
+      }
     }
 
     //Option list
     function optionList() {
-      
+      let readAbsolute = 0;
+      let readPercentual = 0;
+      let writeAbsolute = 0;
+      let writePercentual = 0;
+      let hitAbsolute = 0;
+      let hitPercentual = 0;
     }
 
     //Option exit
     function optionExit() {
-      form.innerHTML = "Finished.";
+      form.innerHTML = "<p style='font-size: 0.9em;'>Finished.</p>";
     }
 
     //Start algorithm
