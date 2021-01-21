@@ -163,17 +163,23 @@
         generatedCache += Math.round(Math.random()) + "";
       }
       return generatedCache;
-    };
+    }
 
     //Function that generates cache, memory and hit data
     function generateCacheAndMemory() {
       for (let i = 0; i < lines; i++) {
-        cacheVector[i] = new cacheConstructor(generateRandomNumber(4));
-        cache.innerHTML += cacheVector[i].data + "<br/>";
-        memoryVector[i] = new memoryConstructor(generateRandomNumber(8));
-        memory.innerHTML += memoryVector[i].data + "<br/>";
-        hitVector[i] = new hitConstructor(generateRandomNumber(1));
-        hit.innerHTML += hitVector[i].data + "<br/>";
+
+        let cacheConstructorReturn = new cacheConstructor(generateRandomNumber(4));
+        cacheVector[i] = cacheConstructorReturn.data;
+        cache.innerHTML += cacheVector[i] + "<br/>";
+
+        let memoryConstructorReturn = new memoryConstructor(generateRandomNumber(8));
+        memoryVector[i] = memoryConstructorReturn.data;
+        memory.innerHTML += memoryVector[i] + "<br/>";
+
+        let hitConstructorReturn = new hitConstructor(generateRandomNumber(1));
+        hitVector[i] = hitConstructorReturn.data;
+        hit.innerHTML += hitVector[i] + "<br/>";
       }
     }
 
@@ -187,13 +193,9 @@
     //Option write
     function optionWrite() {
       let inputData = input.value;
-      console.log(memoryVector);
-      console.log(memoryConstructor);
       for (let i = 0; i < memoryVector.lenght; i++) {
-        
-          alert(inputData);
-          hitVector[i] = "Hit!";
-        
+        alert(memoryVector[i]);
+        let isInMemory = (inputData == memoryVector[i]) ? "Is in " + memoryVector[i] : "Not is in memory";        
       }
     }
 
