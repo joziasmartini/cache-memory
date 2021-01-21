@@ -128,6 +128,9 @@
       font-size: 0.8em;
       font-weight: 200;
     }
+    .finished-message {
+      font-size: 0.9em;
+    }
   </style>
 
   <!-- JS -->
@@ -184,10 +187,12 @@
     //Option write
     function optionWrite() {
       let inputData = input.value;
+      console.log(memoryVector);
+      console.log(memoryConstructor);
       for (let i = 0; i < memoryVector.lenght; i++) {
-        if (inputData === memoryVector[i]) {
-          hitVector[i] = "Hit!"
-        }
+        
+          alert(inputData);
+          hitVector[i] = "Hit!";
         
       }
     }
@@ -200,11 +205,23 @@
       let writePercentual = 0;
       let hitAbsolute = 0;
       let hitPercentual = 0;
+
+      option.innerHTML = 
+      "Os resultados finais são: " + 
+      "<br/><br/>" + 
+      " Read abs.: " + readAbsolute + 
+      " Read per.: " + readPercentual +
+      " Write abs.: " + writeAbsolute + 
+      "<br/>" + 
+      " Write per.: " + writePercentual +
+      " Hit abs.: " + hitAbsolute + 
+      " Hit per.: " + hitPercentual;
     }
 
     //Option exit
     function optionExit() {
-      form.innerHTML = "<p style='font-size: 0.9em;'>Finished.</p>";
+      let finishedMessage = "<p class='finished-message'>Finished.</p>";
+      form.innerHTML = finishedMessage;
     }
 
     //Start algorithm
