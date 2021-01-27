@@ -171,14 +171,25 @@
 
         let cacheConstructorReturn = new cacheConstructor(generateRandomNumber(4));
         cacheVector[i] = cacheConstructorReturn.data;
-        cache.innerHTML += cacheVector[i] + "<br/>";
 
         let memoryConstructorReturn = new memoryConstructor(generateRandomNumber(8));
         memoryVector[i] = memoryConstructorReturn.data;
-        memory.innerHTML += memoryVector[i] + "<br/>";
 
         let hitConstructorReturn = new hitConstructor(generateRandomNumber(1));
         hitVector[i] = hitConstructorReturn.data;
+      }
+    }
+
+    //Display and refresh data on screen
+    function displayDataOnScreen() {
+
+      cache.innerHTML = "<p>Cache</p>";
+      memory.innerHTML = "<p>Memory</p>";
+      hit.innerHTML = "<p>Hit</p>";
+
+      for (let i = 0; i < lines; i++) {
+        cache.innerHTML += cacheVector[i] + "<br/>";
+        memory.innerHTML += memoryVector[i] + "<br/>";
         hit.innerHTML += hitVector[i] + "<br/>";
       }
     }
@@ -186,16 +197,26 @@
     //Option read
     function optionRead() {
       let position = input.value;
-      let valueInPosition = memoryVector[position].data;
+      let valueInPosition = memoryVector[position];
       option.innerHTML = "O valor na posição " + position + " é " + valueInPosition + ".";
     }
 
     //Option write
     function optionWrite() {
       let inputData = input.value;
-      for (let i = 0; i < memoryVector.lenght; i++) {
-        alert(memoryVector[i]);
-        let isInMemory = (inputData == memoryVector[i]) ? "Is in " + memoryVector[i] : "Not is in memory";        
+      let valueFinded = false;
+      for (i = 0; i < memoryVector.length; i++) {
+        if (inputData == memoryVector[i]) {
+          valueFinded = true;
+          option.innerHTML = "The value " + inputData + " is in the position [" + i + "]";
+        }
+        if (valueFinded == false) {
+          option.innerHTML = "The value " + inputData + " is not in the memory and will be added";
+          memoryVector.pop();
+          memoryVector.push(inputData);
+
+          displayDataOnScreen();
+        }
       }
     }
 
@@ -228,6 +249,7 @@
 
     //Start algorithm
     generateCacheAndMemory();
+    displayDataOnScreen()
     
   </script>
   
