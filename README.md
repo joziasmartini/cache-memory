@@ -5,12 +5,12 @@
 <h1 align="center">cache-memory</h1>
 
 <p align="center">
-A cache memory implementation in JavaScript.<br/>
+A cache memory implementation in JavaScript. <br/>
 </p>
 
-<div align="center" >
-    <img src="app/preview.png">
-</div>
+### Preview
+
+Follow [this link](https://github.com/joziasmartini/cache-memory/blob/main/app/preview.png) to see the application preview.
 
 ### Technologies
 
