@@ -1,6 +1,6 @@
 <p align="center" >
   
-<img src="cpu.svg" color="#24292E" width="60" height="60">
+<img src="app/cpu.svg" color="#24292E" width="60" height="60">
 
 </p>
 
