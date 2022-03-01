@@ -18,3 +18,9 @@ Follow [this link](https://github.com/joziasmartini/cache-memory/blob/main/app/p
 - [Live Server](https://www.npmjs.com/package/live-server)
 - [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
+
+### Running
+
+- Install the dependencies with `npm install`
+- Run the application with live-server trought `npm run start`
+- Done, the application will be running at `localhost:8080`
