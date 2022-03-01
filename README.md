@@ -1,3 +1,5 @@
+<br/>
+
 <div align="center" >
     <img src="app/cpu.svg" width="60" height="60">
 </div>
@@ -14,10 +16,11 @@ Follow [this link](https://github.com/joziasmartini/cache-memory/blob/main/app/p
 
 ### Technologies
 
+- [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
+- [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
+- [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [NPM](https://www.npmjs.com/)
 - [Live Server](https://www.npmjs.com/package/live-server)
-- [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
-- [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
 
 ### Running
 
