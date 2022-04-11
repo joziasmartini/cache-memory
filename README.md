@@ -1,7 +1,7 @@
 <br/>
 
 <div align="center" >
-    <img src="app/cpu.svg" width="60" height="60">
+    <img src="src/cpu.svg" width="60" height="60">
 </div>
 
 <h1 align="center">cache-memory</h1>
@@ -12,7 +12,7 @@ A cache memory implementation in JavaScript. <br/>
 
 ### Preview
 
-Follow [this link](https://github.com/joziasmartini/cache-memory/blob/main/app/preview.png) to see the application preview.
+To see the application preview, follow [this link](https://github.com/joziasmartini/cache-memory/blob/main/app/assets/preview.png).
 
 ### Technologies
 
@@ -27,3 +27,4 @@ Follow [this link](https://github.com/joziasmartini/cache-memory/blob/main/app/p
 - Install the dependencies with `npm install`
 - Run the application with live-server trought `npm run start`
 - Done, the application will be running at `localhost:8080`
+- If anything goes wrong, search and open `main.html`
