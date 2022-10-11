@@ -23,6 +23,5 @@ To see the application preview, follow [this link](https://github.com/joziasmart
 ### Running
 
 - Install the dependencies with `npm install`
-- Run the application with live-server trought `npm run start`
-- Done, the application will be running at `localhost:8080`
-- If anything goes wrong, search and open `main.html`
+- Run the application with live-server through `npm run start`
+- Access the application running at `localhost:8080`
