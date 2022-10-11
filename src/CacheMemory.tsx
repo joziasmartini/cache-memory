@@ -9,31 +9,28 @@ function CacheMemory() {
         <p className="cache-memory-header__subtitle">A cache memory implementation in TypeScript.</p>
       </header>
 
-        <section id="form">
-
-          <input id="input" className="input" type="text" placeholder="Write here"/>
-
+        <section className="form">
+          <input className="input" type="text" placeholder="Write here"/>
           <section className="button-area">
             <span onClick={() => {}} className="button">Read</span>
             <span onClick={() => {}} className="button">Write</span>
             <span onClick={() => {}} className="button">List</span>
             <span onClick={() => {}} className="button">Exit</span>
           </section>
-
         </section>
 
         <section className="option-result">
-          <p id="option-return"></p>
+          <p className="option-return"></p>
         </section>
 
         <section className="memory-data">
-          <div id="cache">
+          <div className="cache">
             <p>Cache</p>
           </div>
-          <div id="memory">
+          <div className="memory">
             <p>Memory</p>
           </div>
-          <div id="hit">
+          <div className="hit">
             <p>Hit</p>
           </div>
         </section>
