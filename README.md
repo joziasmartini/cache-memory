@@ -16,11 +16,9 @@ To see the application preview, follow [this link](https://github.com/joziasmart
 
 ### Technologies
 
-- [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
-- [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
-- [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [NPM](https://www.npmjs.com/)
-- [Live Server](https://www.npmjs.com/package/live-server)
+- [TypeScript](https://www.typescriptlang.org/)
+- [SASS](https://sass-lang.com/)
 
 ### Running
 
