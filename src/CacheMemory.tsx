@@ -1,78 +1,41 @@
 import './CacheMemory.sass';
 
-// let readAbsolute = 0;
-// let readPercentual = 0;
-// let writeAbsolute = 0;
-// let writePercentual = 0;
-// let hitAbsolute = 0;
-// let hitPercentual = 0;
-
-//Function thats generate random number
-function generateRandomNumber(count) {
-  let generatedCache = "";
+const randomBit = (count: number) => {
+  let number = "";
   for (let i = 0; i < count; i++) {
-    generatedCache += Math.round(Math.random()) + "";
+    number += Math.round(Math.random());
   }
-  return generatedCache;
-}
+  return number;
+};
 
-//Function that generates cache, memory and hit data
-function generateCacheAndMemory() {
-  for (let i = 0; i < lines; i++) {
-
-    let cacheConstructorReturn = new cacheConstructor(generateRandomNumber(4));
-    cacheVector[i] = cacheConstructorReturn.data;
-
-    let memoryConstructorReturn = new memoryConstructor(generateRandomNumber(8));
-    memoryVector[i] = memoryConstructorReturn.data;
-
-    let hitConstructorReturn = new hitConstructor(generateRandomNumber(1));
-    hitVector[i] = hitConstructorReturn.data;
-  }
-}
-
-//Display and refresh data on screen
-function displayDataOnScreen() {
-
-  cache.innerHTML = "<p>Cache</p>";
-  memory.innerHTML = "<p>Memory</p>";
-  hit.innerHTML = "<p>Hit</p>";
-
-  for (let i = 0; i < lines; i++) {
-    cache.innerHTML += cacheVector[i] + "<br/>";
-    memory.innerHTML += memoryVector[i] + "<br/>";
-    hit.innerHTML += hitVector[i] + "<br/>";
-  }
-}
+let cacheInitial = randomBit(4);
+let memoryInitial = randomBit(8);
+let hitInitial = randomBit(1);
 
 //Option read
-function optionRead() {
-  let position = input.value;
-  let valueInPosition = memoryVector[position];
-  option.innerHTML = "O valor na posição " + position + " é " + valueInPosition + ".";
-}
+// function optionRead() {
+//   let position = input.value;
+//   let valueInPosition = memoryVector[position];
+//   option.innerHTML = "O valor na posição " + position + " é " + valueInPosition + ".";
+// }
 
 //Option write
-function optionWrite() {
-  let inputData = input.value;
-  let valueFinded = false;
-  for (i = 0; i < memoryVector.length; i++) {
-    if (inputData == memoryVector[i]) {
-      valueFinded = true;
-      option.innerHTML = "The value " + inputData + " is in the position [" + i + "]";
-    }
-    if (valueFinded == false) {
-      option.innerHTML = "The value " + inputData + " is not in the memory and will be added";
-      memoryVector.pop();
-      memoryVector.push(inputData);
-
-      displayDataOnScreen();
-    }
-  }
-}
-
-
-
+// function optionWrite() {
+//   let inputData = input.value;
+//   let valueFinded = false;
+//   for (i = 0; i < memoryVector.length; i++) {
+//     if (inputData == memoryVector[i]) {
+//       valueFinded = true;
+//       option.innerHTML = "The value " + inputData + " is in the position [" + i + "]";
+//     }
+//     if (valueFinded == false) {
+//       option.innerHTML = "The value " + inputData + " is not in the memory and will be added";
+//       memoryVector.pop();
+//       memoryVector.push(inputData);
+//       displayDataOnScreen();
+//     }
+//   }
+// }
 
 function CacheMemory() {
   return (
@@ -99,12 +62,15 @@ function CacheMemory() {
         <section className="cache-memory-memory-data">
           <div className="cache-memory-cache-area">
             <p>Cache</p>
+            { cacheInitial }
           </div>
           <div className="cache-memory-memory-area">
             <p>Memory</p>
+            { memoryInitial }
           </div>
           <div className="cache-memory-hit-area">
             <p>Hit</p>
+            { hitInitial }
           </div>
         </section>
     </main>
