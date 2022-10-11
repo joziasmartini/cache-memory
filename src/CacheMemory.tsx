@@ -9,28 +9,28 @@ function CacheMemory() {
         <p className="cache-memory-header__subtitle">A cache memory implementation in TypeScript.</p>
       </header>
 
-        <section className="form">
-          <input className="input" type="text" placeholder="Write here"/>
-          <section className="button-area">
-            <span onClick={() => {}} className="button">Read</span>
-            <span onClick={() => {}} className="button">Write</span>
-            <span onClick={() => {}} className="button">List</span>
-            <span onClick={() => {}} className="button">Exit</span>
+        <section className="cache-memory-form">
+          <input className="cache-memory-input" type="text" placeholder="Write here"/>
+          <section className="cache-memory-button-area">
+            <span onClick={() => {}} className="cache-memory-button">Read</span>
+            <span onClick={() => {}} className="cache-memory-button">Write</span>
+            <span onClick={() => {}} className="cache-memory-button">List</span>
+            <span onClick={() => {}} className="cache-memory-button">Exit</span>
           </section>
         </section>
 
-        <section className="option-result">
-          <p className="option-return"></p>
+        <section className="cache-memory-option-result">
+          <p className="cache-memory-option-return"></p>
         </section>
 
-        <section className="memory-data">
-          <div className="cache">
+        <section className="cache-memory-memory-data">
+          <div className="cache-memory-cache-area">
             <p>Cache</p>
           </div>
-          <div className="memory">
+          <div className="cache-memory-memory-area">
             <p>Memory</p>
           </div>
-          <div className="hit">
+          <div className="cache-memory-hit-area">
             <p>Hit</p>
           </div>
         </section>
