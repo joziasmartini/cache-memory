@@ -15,7 +15,6 @@ function CacheMemory() {
             <span onClick={() => {}} className="cache-memory-button">Read</span>
             <span onClick={() => {}} className="cache-memory-button">Write</span>
             <span onClick={() => {}} className="cache-memory-button">List</span>
-            <span onClick={() => {}} className="cache-memory-button">Exit</span>
           </section>
         </section>
 
