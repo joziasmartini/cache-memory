@@ -1,10 +1,10 @@
 import './CacheMemory.sass';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 function CacheMemory() {
-  let cacheInitial: number[] = [];
-  let memoryInitial: number[] = [];
-  let hitInitial: number[] = [];
+  const [cacheInitial, setCacheInitial] = useState<number[]>([]);
+  const [memoryInitial, setMemoryInitial] = useState<number[]>([]);
+  const [hitInitial, setHitInitial] = useState<number[]>([]);
 
   const randomBit = (count: number) => {
     let number = 0;
@@ -14,20 +14,18 @@ function CacheMemory() {
     return number;
   };
   
-  const initMemory = () => {
-    let counter: number = 0;
-  
-    while (counter < 8) {
-      cacheInitial.push(randomBit(4));
-      memoryInitial.push(randomBit(8));
-      hitInitial.push(randomBit(1));
-      counter++;
+  const initMemory = (memorySize: number) => {
+    for (let i = 0; i < memorySize; i++) {
+      setCacheInitial([...cacheInitial, randomBit(4)]);
+      setMemoryInitial([...memoryInitial, randomBit(8)]);
+      setHitInitial([...hitInitial, randomBit(1)]);
     }
   }
 
   useEffect(() => {
-    initMemory();
-  })
+    initMemory(8);
+    //eslint-disable-next-line
+  }, []);
 
   return (
     <main className="cache-memory-container">
@@ -54,15 +52,36 @@ function CacheMemory() {
         <section className="cache-memory-memory-data">
           <div className="cache-memory-cache-area">
             <p>Cache</p>
-            { cacheInitial }
+            {cacheInitial.length !== 0 && cacheInitial.map((cache, index) => {
+                return (
+                  <div className="cache-data-area" key={index}>
+                    <p>{cache}</p>
+                  </div>
+                )
+              })
+            }
           </div>
           <div className="cache-memory-memory-area">
             <p>Memory</p>
-            { memoryInitial }
+            {memoryInitial.length !== 0 && memoryInitial.map((memory, index) => {
+                return (
+                  <div className="memory-data-area" key={index}>
+                    <p>{memory}</p>
+                  </div>
+                )
+              })
+            }
           </div>
           <div className="cache-memory-hit-area">
             <p>Hit</p>
-            { hitInitial }
+            {hitInitial.length !== 0 && hitInitial.map((hit, index) => {
+                return (
+                  <div className="hit-data-area" key={index}>
+                    <p>{hit}</p>
+                  </div>
+                )
+              })
+            }
           </div>
         </section>
     </main>
