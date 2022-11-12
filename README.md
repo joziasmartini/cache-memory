@@ -8,6 +8,10 @@
 
 <br/>
 
+### Introduction
+
+Cache was the name chosen to represent the level of the memory hierarchy between the processor and main memory. It consists of a small, fast memory that acts as a buffer for the DRAM memory, and is built using a different memory technology, static random access memory (SRAM). (from the book Computer Organization and Design, by David Patterson).
+
 ### Preview
 
 To see the application preview, follow [this link](https://github.com/joziasmartini/cache-memory/blob/main/doc/preview.png).
