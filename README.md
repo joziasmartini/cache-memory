@@ -6,6 +6,8 @@
     <p>A cache memory implementation.</p>
 </div>
 
+<br/>
+
 ### Preview
 
 To see the application preview, follow [this link](https://github.com/joziasmartini/cache-memory/blob/main/doc/preview.png).
