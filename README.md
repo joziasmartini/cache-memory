@@ -22,4 +22,4 @@ To see the application preview, follow [this link](https://github.com/joziasmart
 
 - Install the dependencies with `npm install`
 - Run the application with live-server through `npm run start`
-- Access the application running at `localhost:8080`
+- Access the application running at `localhost:3000`
