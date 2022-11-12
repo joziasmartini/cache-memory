@@ -1,14 +1,10 @@
 <br/>
 
-<div align="center" >
-    <img src="doc/cpu.svg" width="60" height="60">
+<div align="center">
+    <img src="doc/cpu.svg" width="60" height="60" />
+    <h1>Cache Memory</h1>
+    <p>A cache memory implementation.</p>
 </div>
-
-<h1 align="center">cache-memory</h1>
-
-<p align="center">
-A cache memory implementation in JavaScript. <br/>
-</p>
 
 ### Preview
 
